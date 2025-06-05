@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            width: 440px;
+            text-align: center;
+            animation: fadeInUp 0.7s ease-in-out;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+        }
+
+        .prediction {
+            font-size: 22px;
+            font-weight: 600;
+            color: #43a047;
+            margin-top: 15px;
+        }
+
+        img {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 12px;
+            border: 2px solid #d0e8e2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            background-color: #1e88e5;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #1565c0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-card">
+        <h1>📈 Prediction Result</h1>
+
+        {% if prediction %}
+            <div class="prediction">Result: {{ prediction }}</div>
+            <img src="{{ image_path }}" alt="Uploaded Image">
+        {% else %}
+            <div class="prediction" style="color: #c62828;">No prediction available.</div>
+        {% endif %}
+
+        <a href="{{ url_for('index') }}">🔁 Try Another Image</a>
+    </div>
+</body>
+</html>
