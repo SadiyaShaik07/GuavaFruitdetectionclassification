@@ -1,0 +1,10 @@
+data_split,sub_directory,image_count
+val,healthy_guava,185
+val,fruit_fly,262
+val,Anthracnose,308
+test,healthy_guava,94
+test,fruit_fly,132
+test,Anthracnose,156
+train,healthy_guava,649
+train,fruit_fly,918
+train,Anthracnose,1080
